@@ -5,17 +5,22 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "yarn build && node dist/src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "yarn build && node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "ts-node-dev src/index.ts",
+    "lint": "eslint ./src --ext .ts",
+    "lint-fix": "eslint ./src --ext .ts --fix"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "module-alias": "^2.2.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/module-alias": "^2.0.1",
     "@types/node": "^16.9.6",
+    "@typescript-eslint/eslint-plugin": "^4.31.2",
+    "@typescript-eslint/parser": "^4.31.2",
+    "eslint": "^7.32.0",
+    "ts-node-dev": "^1.1.8",
     "typescript": "^4.4.3"
   }
 }
