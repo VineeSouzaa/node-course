@@ -1,7 +1,7 @@
 describe('teste', () => {
   it('resposta', async () => {
     const { body, status } = await global.testRequest.get('/forecast');
-    //expect(status).toBe(200);
+    expect(status).toBe(200);
     expect(body).toEqual([
       {
         time: '2020-04-26T00:00:00+00:00',
