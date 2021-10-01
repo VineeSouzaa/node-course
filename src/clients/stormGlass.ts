@@ -58,8 +58,17 @@ export class StormGlass {
           );
         return this.normalizeResponse(response.data)
     }  catch (err) {
-        throw new Error(`Unexpected error when trying to communicate to StormGlass`)
-    }
+        if ((err as AxiosError).response && (err as AxiosError).response?.data) {
+          throw new ClientRequestError(
+            `Error: ${JSON.stringify((err as AxiosError).response?.data)} Code: ${
+              (err as AxiosError).response?.status
+            }`
+          );
+        }
+  
+        throw new ClientRequestError((err as Error).message);
+      }
+  
 
   }
   private normalizeResponse(
